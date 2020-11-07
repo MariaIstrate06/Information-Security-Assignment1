@@ -1,5 +1,6 @@
 import socket
 from Crypto.Cipher import AES
+from mode_implementation import *
 
 client_socket = socket.socket()
 host = '127.0.0.1'
@@ -28,7 +29,25 @@ elif encrypting_mode_received_from_a.decode('utf-8') == 'CBC':
 
 key_received_from_server = client_socket.recv(2048)
 the_key = aes_ecb.decrypt(key_received_from_server)
-print(the_key.decode('utf-8'))
+
 
 client_socket.send(str.encode('Ready!'))
+
+to_decrypt = b''
+from_A = client_socket.recv(16)
+while from_A:
+    to_decrypt += from_A
+    from_A = client_socket.recv(16)
+# print(to_decrypt)
+if encrypting_mode_received_from_a == 'ECB':
+    final = ecb_decryption(to_decrypt)
+else:
+    final = cbc_decryption(to_decrypt)
+
+print(final)
+
+
+
+
+
 
