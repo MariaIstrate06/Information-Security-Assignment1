@@ -50,7 +50,7 @@ def cbc_encryption(string_to_encode):
         string_to_encode = string_to_encode[16:]
     my_list_of_blocks[len(my_list_of_blocks) - 1] = pad(my_list_of_blocks[len(my_list_of_blocks) - 1])
     for i in my_list_of_blocks:
-        block = aes_cbc.encrypt(strxor(bytes(i, 'utf-8'), init))
+        block = aes_cbc.encrypt(strxor(i, init))
         init = block
         encoded_string = encoded_string + block
     return encoded_string

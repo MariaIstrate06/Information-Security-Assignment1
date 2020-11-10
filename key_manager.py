@@ -66,7 +66,7 @@ if b_key_request.decode('utf-8') == 'ECB':
     encrypted_for_b_key1 = ecb_encryption(key1)
     node_B.send(encrypted_for_b_key1)
 
-if b_key_request.decode('utf-8') == 'ECB':
+if b_key_request.decode('utf-8') == 'CBC':
     pad(key1)
     encrypted_for_b_key2 = ecb_encryption(key2)
     node_B.send(encrypted_for_b_key2)

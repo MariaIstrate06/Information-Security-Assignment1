@@ -19,7 +19,7 @@ to_send = input('Choose your mode (ECB/CBC): ').upper()
 client_socket.send(to_send.encode('utf-8'))
 encrypted_response = client_socket.recv(2048)
 encoded_the_key = ecb_decryption(encrypted_response)
-print(encoded_the_key)
+# print(encoded_the_key)
 
 # the_key = encoded_the_key.decode('utf-8')
 
@@ -32,9 +32,12 @@ with open("some_text.txt", "rb") as file:
     if to_send == 'ECB':
         b_text = ecb_encryption(b_text)
     else:
+        # print("original: ", b_text)
         b_text = cbc_encryption(b_text)
+        # print("crypted: ", b_text)
+
     for index in range(0, len(b_text), 16):
-        print(b_text[index:index+16])
+        # print(b_text[index:index+16])
         client_socket.send(b_text[index:index + 16])
-    print('all good')
+    # print('all good')
 

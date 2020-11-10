@@ -26,10 +26,10 @@ elif encrypting_mode_received_from_a.decode('utf-8') == 'CBC':
     # we have to send a message to the server
     # in which we request k2
     print('Okay, we are working with CBC!')
+    client_socket.send(str.encode('CBC'))
 
 key_received_from_server = client_socket.recv(2048)
 the_key = aes_ecb.decrypt(key_received_from_server)
-
 
 client_socket.send(str.encode('Ready!'))
 
@@ -45,9 +45,3 @@ else:
     final = cbc_decryption(to_decrypt)
 
 print(final)
-
-
-
-
-
-
