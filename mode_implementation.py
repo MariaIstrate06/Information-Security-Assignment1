@@ -6,7 +6,7 @@ from Crypto.Util.strxor import strxor
 key1 = b'0123456789ABCDEF'
 key2 = b'ABCDEFGHIJKLMNOP'
 key3 = b'ABCDEF0123456789'
-iv = b'cristosuma-tiiSI'
+iv = b'somestring123456'
 
 aes_ecb = AES.new(key3, AES.MODE_ECB)
 aes_cbc = AES.new(key3, AES.MODE_CBC, iv)
@@ -42,7 +42,7 @@ def ecb_encryption(string_to_encode):
 
 
 def cbc_encryption(string_to_encode):
-    init = b'cristosuma-tiiSI'
+    init = b'somestring123456'
     encoded_string = b''
     my_list_of_blocks = []
     while string_to_encode:

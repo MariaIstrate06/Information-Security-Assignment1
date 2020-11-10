@@ -6,7 +6,7 @@ client_socket = socket.socket()
 host = '127.0.0.1'
 port = 2345
 key3 = b'ABCDEF0123456789'
-iv = b'cristosuma-tiiSI'
+iv = b'somestring123456'
 aes_ecb = AES.new(key3, AES.MODE_ECB)
 
 print('Waiting for connection')

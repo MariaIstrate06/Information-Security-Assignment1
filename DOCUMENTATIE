@@ -1,0 +1,19 @@
+- am făcut în fișierul mode_implementation ECB și CBC, criptare și decriptare
+- am implementat funcția pentru padding
+- ca arhitectură am ales să lucrez cu KM server și A și B 2 clienți (KM acceptă DOAR 2 clienți)
+- am făcut xor pt funcția de cbc și concatenarea lor
+
+- datele se iau din fișierul some_text.txt
+- cheile sunt declarate la început fiecare cum trebuie
+- mesajul decrpitat e afișat în consola de la B
+
+- PAȘI DE RULARE:
+fie din pycharm/visual studio
+librării: pycrypto
+sau poate fi rulat din consolă
+se rulează serverul, urmat de cei 2 clienți, A APOI B
+python3 key_manager.py
+python3 node_A.py
+python3 node_B.py
+
+apoi se dă input către A ECB sau CBC.
